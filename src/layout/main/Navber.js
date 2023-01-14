@@ -32,7 +32,7 @@ const Navber = () => {
 
                     <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/login'>Login</Link></li>
 
-                    {/* <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/signUp'>SignUp</Link></li> */}
+                    <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>
 
 
                 </ul>

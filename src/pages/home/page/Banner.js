@@ -21,7 +21,7 @@ const Banner = () => {
 
             <div>
                 <div>
-                    <img className='w-full' src={banner} alt='' />
+                    <img className='w-full animate-pulse' src={banner} alt='' />
                 </div>
             </div>
 

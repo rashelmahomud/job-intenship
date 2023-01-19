@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const CandidateFrom = () => {
     const [countries, setCountries] = useState([]);
     const { register, handleSubmit, control, reset } = useForm();
-const navigate = useNavigate();
+    const navigate = useNavigate();
     const term = useWatch({ control, name: "term" });
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')

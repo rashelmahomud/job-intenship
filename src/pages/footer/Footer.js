@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         <div className=' bg-zinc-800 text-white lg:py-10 lg:px-32 border-t-4 border-indigo-500'>
             <div className='grid lg:grid-cols-2 border-t-2 border-white '>
-                <div className='grid lg:grid-cols-3 mt-10'>
+                <div className='grid lg:grid-cols-3 mt-10 p-3'>
                     <div className='leading-8'>
                         <ul>
                             <li>About us</li>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
                 <div></div>
             </div>
-            <div className='flex flex-row mt-10'>
+            <div className='grid lg:grid-cols-3 grid-cols-2 mt-10 p-3'>
                 <div className='basis-1/4'>
                     <Link><button className='border p-3 font-semibold flex'><BsArrowBarRight className='text-2xl font-bold' />Get Android App</button></Link>
                 </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                     <BsFacebook />
                     <BsTwitter />
                 </div>
-                <div className='basis-1/2 text-end'>
+                <div className='basis-1/2 text-end my-5'>
                     <p>© Copyright 2023 job-intership</p>
                 </div>
             </div>

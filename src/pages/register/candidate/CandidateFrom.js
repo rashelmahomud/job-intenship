@@ -21,7 +21,7 @@ const CandidateFrom = () => {
 
     return (
         <div className='mt-20'>
-            <div onClick={() => navigate('/')} className='cursor-pointer w-fit mt-5 flex items-center'>
+            <div onClick={() => navigate('/register')} className='cursor-pointer w-fit mt-5 flex items-center'>
                 <FaChevronLeft />
                 <p>back</p>
             </div>

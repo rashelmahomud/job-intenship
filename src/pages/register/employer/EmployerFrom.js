@@ -1,9 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { FaChevronLeft } from 'react-icons/fa';
 
 const EmployerFrom = () => {
 
     const { register, handleSubmit, control, reset } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -36,6 +39,10 @@ const EmployerFrom = () => {
 
     return (
         <div className='mt-20 mb-5'>
+            <div onClick={() => navigate('/register')} className='cursor-pointer w-fit mt-5 flex items-center'>
+                <FaChevronLeft />
+                <p>back</p>
+            </div>
             <div className='flex justify-center items-center overflow-auto p-10'>
                 <form onSubmit={handleSubmit(onSubmit)} className='shadow-lg p-10 flex flex-wrap rounded-2xl gap-3 max-w-3xl justify-between'>
                     <h1 className='text-center w-full text-2xl'>Employer</h1>

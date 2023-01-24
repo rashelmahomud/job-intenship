@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { BiSearch } from 'react-icons/bi';
 
 const SearchBox = () => {
     const { handleSubmit, reset, register } = useForm();
@@ -9,12 +10,17 @@ const SearchBox = () => {
     }
     return (
         <div>
+            <div className=' text-center my-5'>
+                <h1 className='lg:text-5xl text-3xl font-semibold my-3'>Find your dream job now</h1>
+                <p className='text-2xl text-semibold text-gray-500'>5 lakh+ jobs for you to explore</p>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='w-1/2 mx-auto flex p-5 shadow rounded-full bg-white gap-10'>
-                    <div className='rounded'>
-                        <input className='p-3' type='email' placeholder='Enter Skill/ designations'{...register("email")} id="email" />
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 lg:w-1/2 mx-auto p-5 shadow rounded lg:rounded-full bg-white gap-10'>
+                    <div className='rounded flex items-center justify-center'>
+                        <BiSearch className='text-xl' />
+                        <input type='name' placeholder='Enter Skill/ designations'{...register("name")} id="name" />
                     </div>
-                    <div className=''>
+                    <div className='w-1/3'>
                         <select className='p-3' id='employerRang' {...register('employerRang')}>
                             {employerRange.sort((a, b) => a.localeCompare(b)).map((catagory) => (
                                 <option key={catagory} value={catagory}>{catagory}</option>

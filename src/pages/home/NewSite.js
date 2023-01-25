@@ -5,7 +5,7 @@ const NewSite = () => {
     return (
         <div className='my-10'>
 
-            <img src={features} alt='features' />
+            <img className='w-full' src={features} alt='features' />
 
         </div>
     );

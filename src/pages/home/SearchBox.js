@@ -18,7 +18,7 @@ const SearchBox = () => {
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 lg:w-1/2 mx-auto p-5 shadow rounded lg:rounded-full bg-white gap-10'>
                     <div className='rounded flex items-center justify-center'>
                         <BiSearch className='text-xl' />
-                        <input className='border-r-4' type='name' placeholder='Enter Skill/ designations'{...register("name")} id="name" />
+                        <input className='border-r-4 outline-none ' type='text' placeholder='Enter Skill/ designations'{...register("text")} id="text" />
                     </div>
                     <div className='w-1/3'>
                         <select className='p-3' id='employerRang' {...register('employerRang')}>
@@ -28,7 +28,7 @@ const SearchBox = () => {
                         </select>
                     </div>
                     <div className='flex'>
-                        <input type='location' className=' border-0' placeholder='Enter Location'  {...register('location')} />
+                        <input type='location' className='outline-none' placeholder='Enter Location'  {...register('location')} />
                         <button className='bg-blue-500 p-3 rounded-full font-semibold text-white'>Search</button>
                     </div>
                 </div>

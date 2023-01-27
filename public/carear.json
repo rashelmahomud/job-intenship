@@ -1,0 +1,24 @@
+
+[
+    {
+        "_id":1,
+        "name":"HOW TO SEARCH",
+        "title":"TOP 20 SMALL AND MID-SIZED U.S. CITIES FOR JOBS",
+        "img" : "https://i.ibb.co/z5bp7vx/3.jpg"
+      
+    },
+    {
+        "_id":2,
+        "name":"THE RIGHT JOB",
+        "title":"10 OF THE EASIEST JOBS TO GET IN A FOREIGN COUNTRY",
+        "img" : "https://i.ibb.co/Xy9pspr/d-1.jpg"
+      
+    },
+    {
+        "_id":1,
+        "name":"WORK PLACE",
+        "title":"HOW TO SPEAK UP IN MEETINGS WITH CONFIDENCE",
+        "img" : "https://i.ibb.co/pnhFrZ5/d-2.jpg"
+      
+    }
+]

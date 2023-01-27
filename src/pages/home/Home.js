@@ -2,6 +2,7 @@ import React from 'react';
 import JobSearch from './JobSearch';
 import NewSite from './NewSite';
 import Banner from './page/Banner';
+import CarrerDevelopment from './page/CarrerDevelopment';
 import RecommendadJob from './page/RecommendadJob';
 import SearchBox from './SearchBox';
 
@@ -12,6 +13,7 @@ const Home = () => {
             <SearchBox />
             <RecommendadJob />
             <JobSearch />
+            <CarrerDevelopment />
             <NewSite />
         </div>
     );

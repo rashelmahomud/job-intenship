@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BiSearch } from 'react-icons/bi';
+import { HiOutlineSearchCircle } from 'react-icons/hi';
 
 const SearchBox = () => {
     const { handleSubmit, reset, register } = useForm();
@@ -29,7 +30,7 @@ const SearchBox = () => {
                     </div>
                     <div className='flex'>
                         <input type='location' className='outline-none' placeholder='Enter Location'  {...register('location')} />
-                        <button className='bg-blue-500 p-3 rounded-full font-semibold text-white'>Search</button>
+                        <button className='bg-blue-500 p-3 rounded-full font-semibold text-xl text-white'>< HiOutlineSearchCircle /></button>
                     </div>
                 </div>
 

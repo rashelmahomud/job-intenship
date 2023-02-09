@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import login from '../assates/login/login (1).jpg'
 import { loginUser, loginWithGoogle } from '../features/auth/authSlice';
 
 const Login = () => {
-
+    const { email, isLoading, isError, error } = useSelector((state) => state.auth);
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -14,11 +15,22 @@ const Login = () => {
 
     const onSubmit = ({ email, password }) => {
         dispatch(loginUser({ email, password }));
-        navigate('/');
+
     }
     const handelGoogleLogin = () => {
         dispatch(loginWithGoogle());
     }
+
+    useEffect(() => {
+        if (!isLoading && email) {
+            navigate('/');
+        }
+    }, [email, isLoading, navigate])
+    useEffect(() => {
+        if (isError) {
+            toast.error(error);
+        }
+    }, [error, isError])
     return (
         <div className='flex h-screen items-center'>
             <div className='w-1/3'>

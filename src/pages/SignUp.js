@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import signUP from '../assates/login/login (2).jpg'
 import { createUser, loginWithGoogle } from '../features/auth/authSlice';
 
 const SignUp = () => {
+    const { isError, error, email, isLoading } = useSelector((state) => state.auth);
     const { register, handleSubmit, reset, control } = useForm();
     const password = useWatch({ control, name: "password" });
     const confirmPassword = useWatch({ control, name: "confirmPassword" });
@@ -30,13 +32,23 @@ const SignUp = () => {
     const handelGoogleLogin = () => {
         dispatch(loginWithGoogle());
     }
+    useEffect(() => {
+        if (!isLoading && email) {
+            navigate('/');
+        }
+    }, [email, isLoading, navigate])
+
+    useEffect(() => {
+        if (isError) {
+            toast.error(error);
+        }
+    }, [error, isError])
 
 
 
     const onSubmit = (data) => {
         dispatch(createUser({ email: data.email, password: data.password }))
         reset();
-        navigate('/');
     }
     return (
         <div className='flex h-screen items-center'>

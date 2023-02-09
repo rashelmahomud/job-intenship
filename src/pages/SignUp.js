@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import signUP from '../assates/login/login (2).jpg'
+import { createUser } from '../features/auth/authSlice';
 
 const SignUp = () => {
     const { register, handleSubmit, reset, control } = useForm();
@@ -9,25 +11,29 @@ const SignUp = () => {
     const confirmPassword = useWatch({ control, name: "confirmPassword" });
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true);
+
+    const dispatch = useDispatch();
     useEffect(() => {
         if (
-            password !== undefined &&
-            password !== "" &&
-            confirmPassword !== undefined &&
-            confirmPassword !== "" &&
-            password === confirmPassword
+          password !== undefined &&
+          password !== "" &&
+          confirmPassword !== undefined &&
+          confirmPassword !== "" &&
+          password === confirmPassword
         ) {
-            setDisabled(false);
+          setDisabled(false);
         } else {
-            setDisabled(true);
+          setDisabled(true);
         }
-    }, [password, confirmPassword]);
+      }, [password, confirmPassword]);
 
 
 
 
     const onSubmit = (data) => {
-        console.log(data);
+        dispatch(createUser({ email: data.email, password: data.password }))
+        reset();
+        navigate('/');
     }
     return (
         <div className='flex h-screen items-center'>
@@ -51,7 +57,7 @@ const SignUp = () => {
                                 <label htmlFor='password' className='ml-5'>
                                     Password
                                 </label>
-                                <input type='password' name='password' className='bg-gray-50 p-2' id="password" {...register("password")} />
+                                <input type='password' name='password' id="password" className='bg-gray-50 p-2'  {...register("password")} />
                             </div>
 
                             <div className='flex flex-col items-start'>
@@ -69,9 +75,10 @@ const SignUp = () => {
 
                                 <button
                                     type='submit'
-                                    className='font-bold text-white py-3 rounded-full bg-blue-500 w-full'
+                                    className='font-bold text-white py-3 rounded-full bg-blue-500 w-full disabled:bg-gray-300 disabled:cursor-not-allowed'
+                                    disabled={disabled}
                                 >
-                                    Login
+                                    SignUp
                                 </button>
                             </div>
                             <div>
@@ -80,8 +87,9 @@ const SignUp = () => {
                                     <span
                                         className='text-primary hover:underline cursor-pointer'
                                         onClick={() => navigate("/login")}
+
                                     >
-                                        Sign up
+                                        Login
                                     </span>
                                 </p>
                             </div>

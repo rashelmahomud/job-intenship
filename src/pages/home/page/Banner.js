@@ -1,7 +1,12 @@
 import React from 'react';
 import Button from '../btn/Button';
 import banner from '../../../assates/d.png';
+import 'animate.css';
 const Banner = () => {
+
+    const tecnology = ['JavaScript', 'React.js', 'Node.js', 'Mongodb', 'TaildwinCss','Redux'];
+
+
     return (
         <div className='grid lg:grid-cols-2 md:grid-cols-1'>
             <div className='mt-10 p-3'>
@@ -15,8 +20,12 @@ const Banner = () => {
 
                     <Button>Get Started</Button>
                 </div>
-
-
+                <div className='lg:flex'>
+                    {
+                        tecnology.map(tecno => <div className='text-gray-500 p-2 font-semibold text-xl animate__bounce' >{tecno}</div>)
+                    }
+                    
+                </div>
             </div>
 
             <div>

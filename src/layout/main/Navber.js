@@ -4,10 +4,23 @@ import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { FiDelete } from 'react-icons/fi';
 import { BsChatSquareDots } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth';
+import { logOut } from '../../features/auth/authSlice';
+import auth from '../../firebase/firebase.config';
 
 const Navber = () => {
 
     const [open, setOpen] = useState(false);
+    const { email } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
+
+    const handelSignOut = () => {
+        signOut(auth).then(() => {
+            dispatch(logOut())
+        });
+
+    };
 
     return (
         <div className='w-full shadow-md top-0 left-0'>
@@ -33,9 +46,9 @@ const Navber = () => {
 
                     <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/'><BsChatSquareDots /></Link></li>
 
-                    <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/login'>Login</Link></li>
+                    {email ? <button onClick={handelSignOut} className='lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400'>LogOut</button> : <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/login'>Login</Link></li>}
 
-                    <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>
+                    {email ? <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li> : "H"}
 
 
                 </ul>

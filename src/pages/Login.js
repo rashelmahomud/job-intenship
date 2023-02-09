@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import login from '../assates/login/login (1).jpg'
-import { loginUser } from '../features/auth/authSlice';
+import { loginUser, loginWithGoogle } from '../features/auth/authSlice';
 
 const Login = () => {
 
@@ -15,6 +15,9 @@ const Login = () => {
     const onSubmit = ({ email, password }) => {
         dispatch(loginUser({ email, password }));
         navigate('/');
+    }
+    const handelGoogleLogin = () => {
+        dispatch(loginWithGoogle());
     }
     return (
         <div className='flex h-screen items-center'>
@@ -63,6 +66,7 @@ const Login = () => {
                             <button
 
                                 type='button'
+                                onClick={handelGoogleLogin}
                                 className='font-bold text-white py-3 rounded-full bg-blue-500 w-full'
                             >
                                 Login With Google

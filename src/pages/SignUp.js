@@ -3,7 +3,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import signUP from '../assates/login/login (2).jpg'
-import { createUser } from '../features/auth/authSlice';
+import { createUser, loginWithGoogle } from '../features/auth/authSlice';
 
 const SignUp = () => {
     const { register, handleSubmit, reset, control } = useForm();
@@ -15,18 +15,21 @@ const SignUp = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         if (
-          password !== undefined &&
-          password !== "" &&
-          confirmPassword !== undefined &&
-          confirmPassword !== "" &&
-          password === confirmPassword
+            password !== undefined &&
+            password !== "" &&
+            confirmPassword !== undefined &&
+            confirmPassword !== "" &&
+            password === confirmPassword
         ) {
-          setDisabled(false);
+            setDisabled(false);
         } else {
-          setDisabled(true);
+            setDisabled(true);
         }
-      }, [password, confirmPassword]);
+    }, [password, confirmPassword]);
 
+    const handelGoogleLogin = () => {
+        dispatch(loginWithGoogle());
+    }
 
 
 
@@ -94,8 +97,8 @@ const SignUp = () => {
                                 </p>
                             </div>
                             <button
-
                                 type='button'
+                                onClick={handelGoogleLogin}
                                 className='font-bold text-white py-3 rounded-full bg-blue-500 w-full'
                             >
                                 Login With Google

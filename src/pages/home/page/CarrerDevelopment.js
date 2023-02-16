@@ -7,9 +7,9 @@ const CarrerDevelopment = () => {
     const [carers, setCarers] = useState([]);
 
     useEffect(() => {
-        fetch('carear.json')
+        fetch('http://localhost:5000/carear')
             .then(res => res.json())
-            .then(data => setCarers(data))
+            .then(data => setCarers(data.data))
     }, [])
 
     return (

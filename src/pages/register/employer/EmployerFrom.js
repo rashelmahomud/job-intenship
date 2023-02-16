@@ -2,14 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FaChevronLeft } from 'react-icons/fa';
+import { useRegisterMutation } from '../../../features/auth/authApi';
 
 const EmployerFrom = () => {
 
     const { register, handleSubmit, control, reset } = useForm();
     const navigate = useNavigate();
 
+    const [postUser, { isError, isLoading }] = useRegisterMutation();
+
     const onSubmit = (data) => {
-        console.log(data);
+        postUser({ ...data, role: 'employer' });
         reset();
     }
 

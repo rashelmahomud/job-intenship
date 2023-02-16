@@ -6,6 +6,7 @@ import CandidateFrom from "../pages/register/candidate/CandidateFrom";
 import EmployerFrom from "../pages/register/employer/EmployerFrom";
 import Register from "../pages/register/Register";
 import SignUp from "../pages/SignUp";
+import PrivetRoute from "../utils/PrivetRoute";
 
 
 
@@ -29,10 +30,10 @@ const routes = createBrowserRouter([
                 path: '/signUp',
                 element: <SignUp />
             },
-            {
-                path: '/register',
-                element: <Register />
-            },
+            // {
+            //     path: '/register',
+            //     element: <Register />
+            // },
             {
                 path: '/candidateFrom',
                 element: <CandidateFrom />
@@ -40,7 +41,18 @@ const routes = createBrowserRouter([
             {
                 path: '/employerFrom',
                 element: <EmployerFrom />
+            },
+
+            {
+                path: '/register',
+                element: (
+                    <PrivetRoute>
+                        <Register />
+                    </PrivetRoute>
+                )
             }
+
+
 
         ]
     }

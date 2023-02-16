@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { FaChevronLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useRegisterMutation } from '../../../features/auth/authApi';
 
 const CandidateFrom = () => {
     const [countries, setCountries] = useState([]);
     const { register, handleSubmit, control, reset } = useForm();
     const navigate = useNavigate();
     const term = useWatch({ control, name: "term" });
+
+
+    const [postUser, { isLoading, isError }] = useRegisterMutation();
+
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
             .then(res => res.json())
@@ -15,7 +20,7 @@ const CandidateFrom = () => {
     }, [])
 
     const onSubmit = (data) => {
-        console.log(data);
+        postUser({ ...data, role: 'candidate' });
         reset();
     }
 

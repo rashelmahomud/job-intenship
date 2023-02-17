@@ -3,6 +3,7 @@ import Dashboard from "../layout/dashboard/Dashboard";
 import Main from "../layout/main/Main";
 import Home from "../pages/home/Home";
 import Login from "../pages/Login";
+import About from "../pages/page/About";
 import Profile from "../pages/page/Profile";
 import CandidateFrom from "../pages/register/candidate/CandidateFrom";
 import EmployerFrom from "../pages/register/employer/EmployerFrom";
@@ -36,14 +37,15 @@ const routes = createBrowserRouter([
                 path: '/candidateFrom',
                 element: <CandidateFrom />
             },
+
             {
                 path: '/employerFrom',
                 element: <EmployerFrom />
             },
-            {
-                path: '/profile',
-                element: <Profile />
-            },
+            // {
+            //     path: '/profile',
+            //     element: <Profile />
+            // },
 
             {
                 path: '/register',
@@ -60,7 +62,22 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard />
+        element: (
+
+            <Dashboard />
+
+        ),
+        children: [
+            {
+                path: 'profile',
+                element: <Profile />
+            },
+            {
+                path: 'about',
+                element: <About />
+            }
+        ]
+
     }
 
 ]);

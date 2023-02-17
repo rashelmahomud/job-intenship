@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../layout/dashboard/Dashboard";
 import Main from "../layout/main/Main";
 import Home from "../pages/home/Home";
 import Login from "../pages/Login";
+import Profile from "../pages/page/Profile";
 import CandidateFrom from "../pages/register/candidate/CandidateFrom";
 import EmployerFrom from "../pages/register/employer/EmployerFrom";
 import Register from "../pages/register/Register";
@@ -30,10 +32,6 @@ const routes = createBrowserRouter([
                 path: '/signUp',
                 element: <SignUp />
             },
-            // {
-            //     path: '/register',
-            //     element: <Register />
-            // },
             {
                 path: '/candidateFrom',
                 element: <CandidateFrom />
@@ -41,6 +39,10 @@ const routes = createBrowserRouter([
             {
                 path: '/employerFrom',
                 element: <EmployerFrom />
+            },
+            {
+                path: '/profile',
+                element: <Profile />
             },
 
             {
@@ -50,11 +52,15 @@ const routes = createBrowserRouter([
                         <Register />
                     </PrivetRoute>
                 )
-            }
-
+            },
 
 
         ]
+
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard />
     }
 
 ]);

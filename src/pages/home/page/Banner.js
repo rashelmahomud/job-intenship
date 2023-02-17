@@ -22,7 +22,7 @@ const Banner = () => {
                 </div>
                 <div className='lg:flex'>
                     {
-                        tecnology.map(tecno => <div className='text-gray-500 p-2 font-semibold text-xl animate__bounce' >{tecno}</div>)
+                        tecnology.map(tecno => <div key={tecno} className='text-gray-500 p-2 font-semibold text-xl animate__bounce' >{tecno}</div>)
                     }
                     
                 </div>

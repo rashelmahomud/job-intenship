@@ -1,8 +1,30 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-
+import { useFieldArray, useForm } from 'react-hook-form';
+import { FiTrash } from 'react-icons/fi';
 const AddJob = () => {
     const { handleSubmit, register, control } = useForm();
+
+
+    const {
+        fields: SkillFields,
+        append: SkillAppend,
+        remove: SkillRemove,
+    } = useFieldArray({ control, name: "skills" });
+
+    const {
+        fields: resFields,
+        append: resAppend,
+        remove: resRemove,
+    } = useFieldArray({ control, name: "responsibilities" });
+
+
+    const {
+        fields: reqFields,
+        append: reqAppend,
+        remove: reqRemove,
+    } = useFieldArray({ control, name: "requirments" })
+
+
 
     const onSubmit = () => {
 
@@ -50,8 +72,55 @@ const AddJob = () => {
                         <input className='rounded-full p-2' type='text' id='employment' {...register("employment")} />
 
                     </div>
-                    <div>
+                    <div className='flex flex-col w-full max-w-xs'>
+                        <label className='mb-2' htmlFor='salaryrange'>
+                            Salary Range
+                        </label>
+                        <input className="rounded-full p-2" type='text' id="salaryrange"  {...register("salaryrange")} />
 
+                    </div>
+                    <div className='flex flex-col w-full'>
+                        <label className='mb-2' htmlFor='location'>
+                            Location
+                        </label>
+                        <input className="rounded-full p-2" type='text' id="location"  {...register("overview")} />
+
+                    </div>
+                    <div className='flex flex-col w-full'>
+                        <label className='mb-2' htmlFor='overview'>
+                            Overview
+                        </label>
+                        <textarea className="rounded p-2" rows={8} type='text' id="overview"  {...register("overview")} />
+
+                    </div>
+
+                    {/* add akill  */}
+                    <div className='flex flex-col w-full'>
+                        <label className="mb-2">Skill</label>
+                        <div>
+                            <div>
+                                {
+                                    SkillFields.map((item, index) => {
+                                        return (
+                                            <div key={item.key} className="flex items-center gap-3 mb-5">
+                                                <input type='text' className="!w-full rounded-full p-2" {...register(`skills[${index}]`)} />
+                                                <button type='button' onClick={() => SkillRemove(index)} className="grid place-items-center bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500 rounded-full">
+                                                    <FiTrash
+                                                        className='text-red-500  group-hover:text-white transition-all'
+                                                        size='20' />
+                                                </button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div>
+                                <button
+                                    type='button' onClick={() => SkillAppend("")}
+                                    className="outline outline-offset-2 outline-1 rounded-full p-2"
+                                >Add Skill</button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

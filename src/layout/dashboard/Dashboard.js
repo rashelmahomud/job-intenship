@@ -27,9 +27,9 @@ const Dashboard = () => {
 
 
     return (
-        <div class="drawer drawer-mobile bg-green-50">
-            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content">
+        <div className="drawer drawer-mobile bg-green-50">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
                 <div className='flex lg:p-5'>
                     <h2 className='text-5xl font-bold text-secondary'>Dashboard</h2>
                     <div className='navbar-end'>
@@ -43,9 +43,9 @@ const Dashboard = () => {
 
 
             </div>
-            <div class="drawer-side">
-                <label for="my-drawer-2" class="drawer-overlay"></label>
-                <ul class="menu p-5 overflow-y-auto w-60 lg:hover:w-80 bg-gray-700 text-base-100 text-xl">
+            <div className="drawer-side">
+                <label for="my-drawer-2" className="drawer-overlay"></label>
+                <ul className="menu p-5 overflow-y-auto w-60 lg:hover:w-80 bg-gray-700 text-base-100 text-xl">
 
                     <li><Link to='profile'><CgProfile className='text-orange-400 ' />Profile</Link></li>
                     <li><Link to='about'><SiAboutdotme className='text-orange-400 ' />About</Link></li>

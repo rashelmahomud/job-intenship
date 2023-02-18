@@ -26,7 +26,8 @@ const AddJob = () => {
 
 
 
-    const onSubmit = () => {
+    const onSubmit = (data) => {
+        console.log(data)
 
     }
 
@@ -123,6 +124,71 @@ const AddJob = () => {
                         </div>
                     </div>
 
+                    {/* add responsibility  */}
+
+                    <div className='flex flex-col w-full'>
+                        <label className="mb-2">Add Responsibility</label>
+                        <div>
+                            <div>
+                                {
+                                    resFields.map((item, index) => {
+                                        return (
+                                            <div key={item.key} className="flex items-center gap-3 mb-5">
+                                                <input type='text' className="!w-full rounded-full p-2" {...register(`responsibilities[${index}]`)} />
+                                                <button type='button' onClick={() => resRemove(index)} className="grid place-items-center bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500 rounded-full">
+                                                    <FiTrash
+                                                        className='text-red-500  group-hover:text-white transition-all'
+                                                        size='20' />
+                                                </button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div>
+                                <button
+                                    type='button' onClick={() => resAppend("")}
+                                    className="outline outline-offset-2 outline-1 rounded-full p-2"
+                                >Add Responsibility</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/* Add requirments  */}
+
+                    <div className='flex flex-col w-full'>
+                        <label className='mb-2'>Add Requirment</label>
+                        <div>
+                            {
+                                reqFields.map((item, index) => {
+                                    return (
+                                        <div key={item.key} className="flex items-center gap-3 mb-5">
+                                            <input type='text' className='!w-full rounded-full p-2' {...register(`requirments[${index}]`)} />
+                                            <button type='button' onClick={() => reqRemove(index)} className="grid place-items-center bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500 rounded-full">
+                                                <FiTrash
+                                                    className='text-red-500  group-hover:text-white transition-all'
+                                                    size='20' />
+                                            </button>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                        <div>
+                            <button onClick={() => reqAppend("")} type='button' className='outline outline-offset-2 outline-1 rounded-full p-2'>Add Requirment</button>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div className='flex justify-end items-center w-full mt-3'>
+                    <button className='outline outline-offset-2 outline-1 rounded-full py-2 px-3' type='submit'>
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>

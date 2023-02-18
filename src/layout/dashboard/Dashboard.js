@@ -9,9 +9,22 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { SiAboutdotme } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
 import { AiFillBackward } from "react-icons/ai";
+import { signOut } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../features/auth/authSlice';
+import auth from '../../firebase/firebase.config';
 
 
 const Dashboard = () => {
+
+    const dispatch = useDispatch();
+
+    const handelSignOut = () => {
+        signOut(auth).then(() => {
+            dispatch(logOut());
+        })
+    }
+
 
     return (
         <div class="drawer drawer-mobile bg-green-50">
@@ -43,6 +56,7 @@ const Dashboard = () => {
                     <li><Link to='gettings'><GiMultipleTargets className='text-orange-400' /> Grattings</Link></li>
                     <li><Link to='setting'><GoSettings className='text-orange-400' /> Setting</Link></li>
                     <li><Link to='/'><AiFillBackward className='text-orange-400' />Back</Link></li>
+                    <li><Link onClick={handelSignOut}>Logout</Link></li>
 
 
                 </ul>

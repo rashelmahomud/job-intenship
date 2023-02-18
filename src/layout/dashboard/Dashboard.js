@@ -8,12 +8,13 @@ import { AiFillFileAdd } from "react-icons/ai";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { SiAboutdotme } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
+import { AiFillBackward } from "react-icons/ai";
 
 
 const Dashboard = () => {
 
     return (
-        <div class="drawer drawer-mobile">
+        <div class="drawer drawer-mobile bg-green-50">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <div className='flex lg:p-5'>
@@ -25,23 +26,23 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <Outlet></Outlet>
+                <Outlet />
 
 
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-2" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 bg-gray-700 text-base-100">
-                    <li><Link to='profile'><CgProfile className='text-gray-300 ' />Profile</Link></li>
-                    <li><Link to='about'><SiAboutdotme className='text-gray-300 ' />About</Link></li>
-                    <li><Link><BiMessageSquareAdd className='text-blue-500' /> Job</Link></li>
-                    <li><Link><AiFillFileAdd className='text-gray-300 ' /> Add Job</Link></li>
-                    <li><Link><AiOutlineBorderInner className='text-gray-300 ' /> Order</Link></li>
-                    <li><Link><MdPreview className='text-gray-300 ' /> Reviews</Link></li>
-                    <li><Link><GiMultipleTargets className='text-gray-200 ' /> Grattings</Link></li>
-                    <li> <Link><GoSettings className='text-gray-200 ' /> Setting</Link></li>
-                    <li> <Link to='/'><GoSettings className='text-gray-200 ' />Back</Link></li>
+                <ul class="menu p-5 overflow-y-auto w-60 lg:hover:w-80 bg-gray-700 text-base-100 text-xl">
 
+                    <li><Link to='profile'><CgProfile className='text-orange-400 ' />Profile</Link></li>
+                    <li><Link to='about'><SiAboutdotme className='text-orange-400 ' />About</Link></li>
+                    <li><Link to='job'><BiMessageSquareAdd className='text-orange-400' /> Job</Link></li>
+                    <li><Link to='add-job'><AiFillFileAdd className='text-orange-400 ' /> Add Job</Link></li>
+                    <li><Link to='order'><AiOutlineBorderInner className='text-orange-400 ' /> Order</Link></li>
+                    <li><Link to='reviews'><MdPreview className='text-orange-400' /> Reviews</Link></li>
+                    <li><Link to='gettings'><GiMultipleTargets className='text-orange-400' /> Grattings</Link></li>
+                    <li><Link to='setting'><GoSettings className='text-orange-400' /> Setting</Link></li>
+                    <li><Link to='/'><AiFillBackward className='text-orange-400' />Back</Link></li>
 
 
                 </ul>

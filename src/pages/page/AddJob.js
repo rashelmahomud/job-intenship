@@ -1,9 +1,10 @@
 import React from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { FiTrash } from 'react-icons/fi';
+import { usePostJobMutation } from '../../features/job/jobApi';
 const AddJob = () => {
-    const { handleSubmit, register, control } = useForm();
-
+    const { handleSubmit, register, control, reset } = useForm();
+    const [jobPost, { isLoading, isError }] = usePostJobMutation();
 
     const {
         fields: SkillFields,
@@ -28,14 +29,16 @@ const AddJob = () => {
 
     const onSubmit = (data) => {
         console.log(data)
+        jobPost(data);
 
+        reset();
     }
 
 
     return (
 
-        <div className=' mx-5'>
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-300/20 p-10 shadow-lg rounded-2xl max-w-3xl" >
+        <div className='  mx-5'>
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-300/20 mx-auto p-10 shadow-lg rounded-2xl max-w-3xl" >
 
                 <h1 className='mx-auto text-2xl font-semibold'>Add a New Job</h1>
                 <div className=' flex flex-wrap gap-3  justify-between'>
@@ -84,7 +87,7 @@ const AddJob = () => {
                         <label className='mb-2' htmlFor='location'>
                             Location
                         </label>
-                        <input className="rounded-full p-2" type='text' id="location"  {...register("overview")} />
+                        <input className="rounded-full p-2" type='text' id="location"  {...register("location")} />
 
                     </div>
                     <div className='flex flex-col w-full'>

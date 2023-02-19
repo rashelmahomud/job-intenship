@@ -11,6 +11,7 @@ import Order from "../pages/page/Order";
 import Profile from "../pages/page/Profile";
 import Reviews from "../pages/page/Reviews";
 import Setting from "../pages/page/Setting";
+import PageNotFound from "../pages/page/PageNotFound";
 import CandidateFrom from "../pages/register/candidate/CandidateFrom";
 import EmployerFrom from "../pages/register/employer/EmployerFrom";
 import Register from "../pages/register/Register";
@@ -57,6 +58,11 @@ const routes = createBrowserRouter([
                     </PrivetRoute>
                 )
             },
+
+            {
+                path: "*",
+                element: <PageNotFound />
+            }
 
 
         ]

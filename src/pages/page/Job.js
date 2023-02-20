@@ -1,9 +1,10 @@
 import React from 'react';
+import JobCart from '../home/job/JobCart';
 
 const Job = () => {
     return (
         <div>
-            <h1>Job page..</h1>
+           <JobCart />
         </div>
     );
 };

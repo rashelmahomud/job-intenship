@@ -49,52 +49,67 @@ const AddJob = () => {
                         <label className='mb-2' htmlFor='position'>
                             Position
                         </label>
-                        <input className='rounded-full p-2' type='text' id='position' {...register('position')} />
+                        <input className='rounded-full p-2' type='text' id='position' placeholder='write your positons' {...register('position')} />
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='companyName'>
                             Company Name
                         </label>
-                        <input className='rounded-full p-2' type='text' id='companyName' {...register('companyName')} />
+                        <input className='rounded-full p-2' type='text' id='companyName' placeholder='wirte your compnay name..' {...register('companyName')} />
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='experience'>
                             Exprience
                         </label>
-                        <input className='rounded-full p-2' type='text' id='exprience' {...register('exprience')} />
+                        <input className='rounded-full p-2' type='text' id='exprience' placeholder='exprience' {...register('exprience')} />
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='worklabel'>
                             Work Label
                         </label>
-                        <input className='rounded-full p-2' type='text' id="worklabel" {...register("worklabel")} />
+                        <input className='rounded-full p-2' type='text' id="worklabel" placeholder='write your work lable' {...register("worklabel")} />
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='employment'>
                             Employment Type
                         </label>
-                        <input className='rounded-full p-2' type='text' id='employment' {...register("employment")} />
+                        <input className='rounded-full p-2' type='text' id='employment' placeholder='Employment Type' {...register("employment")} />
 
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='salaryrange'>
                             Salary Range
                         </label>
-                        <input className="rounded-full p-2" type='text' id="salaryrange"  {...register("salaryrange")} />
+                        <input className="rounded-full p-2" type='text' id="salaryrange" placeholder='expected salary..'  {...register("salaryrange")} />
 
                     </div>
+                    <div className='flex flex-col w-full max-w-xs'>
+                        <label className='mb-2' htmlFor='duration'>
+                           Duration
+                        </label>
+                        <input className="rounded-full p-2" type='number' id="duration"  placeholder='duration Month Number' {...register("duration")} />
+
+                    </div>
+                    <div className='flex flex-col w-full max-w-xs'>
+                        <label className='mb-2' htmlFor='logo'>
+                          Company Logo
+                        </label>
+                        <input className="rounded-full p-2" type='url' id="logo" placeholder='give me your company logo url..'  {...register("logo")} />
+
+                    </div>
+
                     <div className='flex flex-col w-full'>
                         <label className='mb-2' htmlFor='location'>
                             Location
                         </label>
-                        <input className="rounded-full p-2" type='text' id="location"  {...register("location")} />
+                        <input className="rounded-full p-2" type='text' id="location" placeholder='write your locaiton..'  {...register("location")} />
 
                     </div>
                     <div className='flex flex-col w-full'>
                         <label className='mb-2' htmlFor='overview'>
                             Overview
                         </label>
-                        <textarea className="rounded p-2" rows={8} type='text' id="overview"  {...register("overview")} />
+                        <textarea className="rounded p-2" rows={8} type='text' id="overview"  placeholder='write your description..' {...register("overview")} />
 
                     </div>
 

@@ -27,7 +27,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className="drawer drawer-mobile bg-green-50">
+        <div className="drawer drawer-mobile bg-gray-100">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 <div className='flex lg:p-5'>

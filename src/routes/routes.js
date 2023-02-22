@@ -17,6 +17,7 @@ import EmployerFrom from "../pages/register/employer/EmployerFrom";
 import Register from "../pages/register/Register";
 import SignUp from "../pages/SignUp";
 import PrivetRoute from "../utils/PrivetRoute";
+import JobDetails from "../pages/home/job/JobDetails";
 
 
 
@@ -58,6 +59,19 @@ const routes = createBrowserRouter([
                     </PrivetRoute>
                 )
             },
+            // {
+            //     path: 'jobDetails/:id',
+            //     element: <JobDetails />
+            // },
+            {
+                path: '/job',
+                element: <Job />,
+
+            },
+            {
+                path: '/jobDetails/:id',
+                element: <JobDetails />
+            },
 
             {
                 path: "*",
@@ -85,10 +99,7 @@ const routes = createBrowserRouter([
                 path: 'about',
                 element: <About />
             },
-            {
-                path: 'job',
-                element: <Job />
-            },
+
             {
                 path: 'add-job',
                 element: <AddJob />
@@ -108,7 +119,17 @@ const routes = createBrowserRouter([
             {
                 path: 'reviews',
                 element: <Reviews />
-            }
+            },
+            {
+                path: 'job',
+                element: <Job />,
+
+            },
+          
+
+          
+
+
         ]
 
     }

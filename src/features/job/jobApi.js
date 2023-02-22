@@ -13,9 +13,15 @@ export const jobApi = apiSlice.injectEndpoints({
             })
         }),
 
-        getJob: builder.query({
+        getJobs: builder.query({
             query: () => ({
-                url: '/job'
+                url: '/jobs'
+            }),
+        }),
+        getJobById: builder.query({
+            query: (id) => ({
+                url: `/job/${id}`
+
             })
         })
 
@@ -24,4 +30,4 @@ export const jobApi = apiSlice.injectEndpoints({
 });
 
 
-export const { usePostJobMutation, useGetJobQuery } = jobApi;
+export const { usePostJobMutation, useGetJobByIdQuery, useGetJobsQuery } = jobApi;

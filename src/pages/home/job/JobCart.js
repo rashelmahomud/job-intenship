@@ -6,12 +6,11 @@ import { BsStopwatch } from 'react-icons/bs';
 import { GiDuration } from 'react-icons/gi';
 import { AiOutlineRise } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { useGetJobQuery } from '../../../features/job/jobApi';
+import { useGetJobsQuery } from '../../../features/job/jobApi';
 
 const JobCart = () => {
     const navigate = useNavigate();
-    const { data, isError, isLoading } = useGetJobQuery();
-
+    const { data, isError, isLoading } = useGetJobsQuery();
 
     return (
         <div className='p-5  max-w-3xl mx-auto rounded'>
@@ -64,7 +63,7 @@ const JobCart = () => {
 
                         <div className='flex gap-5 flex-row-reverse '>
                             <button className='border p-2 px-4 rounded bg-blue-500 text-white font-semibold'>Apply Now</button>
-                            <butto className="cursor-pointer p-2 text-black-600 font-semibold">View Details</butto>
+                            <button onClick={() => navigate(`/jobDetails/${_id}`)} className="cursor-pointer p-2 text-black-600 font-semibold">View Details</button>
                         </div>
                     </div>
                 </div>)

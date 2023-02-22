@@ -85,14 +85,14 @@ const AddJob = () => {
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='duration'>
-                           Duration
+                            Duration
                         </label>
-                        <input className="rounded-full p-2" type='number' id="duration"  placeholder='duration Month Number' {...register("duration")} />
+                        <input className="rounded-full p-2" type='number' id="duration" placeholder='duration Month Number' {...register("duration")} />
 
                     </div>
                     <div className='flex flex-col w-full max-w-xs'>
                         <label className='mb-2' htmlFor='logo'>
-                          Company Logo
+                            Company Logo
                         </label>
                         <input className="rounded-full p-2" type='url' id="logo" placeholder='give me your company logo url..'  {...register("logo")} />
 
@@ -105,11 +105,20 @@ const AddJob = () => {
                         <input className="rounded-full p-2" type='text' id="location" placeholder='write your locaiton..'  {...register("location")} />
 
                     </div>
+
+                    <div className='flex flex-col w-full'>
+                        <label className='mb-2' htmlFor='needMember'>
+                            Candidate Need
+                        </label>
+                        <input className="rounded-full p-2" type='number' id="needMember" placeholder='Needs Candidate Number..'  {...register("needMember")} />
+
+                    </div>
+
                     <div className='flex flex-col w-full'>
                         <label className='mb-2' htmlFor='overview'>
                             Overview
                         </label>
-                        <textarea className="rounded p-2" rows={8} type='text' id="overview"  placeholder='write your description..' {...register("overview")} />
+                        <textarea className="rounded p-2" rows={8} type='text' id="overview" placeholder='write your description..' {...register("overview")} />
 
                     </div>
 

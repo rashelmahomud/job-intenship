@@ -11,6 +11,7 @@ import { AiOutlineFile } from 'react-icons/ai';
 import { CiShare1 } from 'react-icons/ci';
 import { RiUserSettingsLine } from 'react-icons/ri';
 import { RiChatNewLine } from 'react-icons/ri';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { CgEditHighlight } from 'react-icons/cg';
 
 import { Link, useParams } from 'react-router-dom';
@@ -21,17 +22,19 @@ const JobDetails = () => {
     const { data, isLoading, isError } = useGetJobByIdQuery(id);
     console.log(data)
 
-    const { companyName, position, duration, salaryrange, logo, overview } = data?.data || {};
+    const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
 
-    console.log('hello ')
     return (
         <div>
             <Link className='border-2 font-semibold p-2 text-xs rounded bg-white w-20 flex items-center gap-2' to='/job'><AiOutlineRise className='font-semibold text-blue-500 text-xl' />Back</Link>
-            <div className='bg-white m-5 p-5'>
+            <div>
+                <p className='text-4xl font-bold text-center my-5 p-5 text-gray-600'>{position} work from home job/internship at {companyName}</p>
+            </div>
+            <div className='bg-white rounded m-5 p-5'>
                 <button className='border-2 font-semibold p-2 text-xs rounded bg-white flex items-center gap-2'><AiOutlineRise className='font-semibold text-blue-500 text-xl' />  Actively hiring</button>
 
                 <div className='flex justify-between items-center '>
-                    <div><h1 className='text-2xl font-semibold'>{position}</h1>
+                    <div><h1 className='text-2xl font-semibold text-gray-500'>{position}</h1>
                         <h3 className='text-xl font-semibold text-gray-400'>{companyName}</h3></div>
                     <img src={logo} alt='logo' className='w-16 h-16' />
                 </div>
@@ -79,7 +82,7 @@ const JobDetails = () => {
                 </div>
                 <p className='border my-5'></p>
                 <div>
-                    <h1 className='font-bold text-xl'>About Kylo Apps</h1>
+                    <h1 className='font-bold text-xl text-gray-500'>About Kylo Apps</h1>
                     <Link className='text-blue-400 flex items-center gap-2 text-xl'>website<CiShare1 /></Link>
                     <p className='my-2'>{overview}</p>
                 </div>
@@ -93,7 +96,7 @@ const JobDetails = () => {
                 </div>
                 <div>
                     <div className='my-3 mt-5 '>
-                        <h4 className='font-bold text-xl'>About the work from home job/internship</h4>
+                        <h4 className='font-bold text-xl text-gray-500'>About the work from home job/internship</h4>
                         <p className='font-semibold'>Selected intern's day-to-day responsibilities include:</p>
                     </div>
                     <div>
@@ -131,7 +134,7 @@ const JobDetails = () => {
                     </div>
 
                     <div>
-                        <h2 className='text-xl font-bold my-5'>Who can apply</h2>
+                        <h2 className='text-xl font-bold my-5 text-gray-500'>Who can apply</h2>
                         <p>Only those candidates can apply who:</p>
 
                         <ul>
@@ -141,10 +144,18 @@ const JobDetails = () => {
                             <li> 4. have relevant skills and interests</li>
                         </ul>
                         <div className='my-5 '>
-                            <p className='text-xl font-bold'>Perks</p>
+                            <p className='text-xl font-bold text-gray-500'>Perks</p>
                             <button className='mx-3 my-2 bg-gray-200 rounded-full p-2 font-bold text-gray-500'>Certificate</button>
                             <button className='mx-3 my-2 bg-gray-200 rounded-full p-2 font-bold text-gray-500'>Letter of recommendation</button>
                             <button className='mx-3 my-2 bg-gray-200 rounded-full p-2 font-bold text-gray-500'>Flexible work hours</button>
+                        </div>
+                        <div>
+                            <h2 className='text-xl font-semibold text-gray-500'>Number of openings</h2>
+                            <p>{needMember}</p>
+                        </div>
+
+                        <div className='text-center'>
+                            <button className='my-5 mx-auto text-2xl font-semibold text-white p-3 bg-[#00A5EC] rounded '>Apply Now</button>
                         </div>
                     </div>
 
@@ -152,6 +163,15 @@ const JobDetails = () => {
                 </div>
 
             </div>
+            <div>
+
+                <p className='p-5 bg-red-100 mt-10 flex gap-2 border-2 rounded'>
+                    < AiOutlineCloseCircle className='text-2xl' />
+                    Save yourself from fraud!
+
+                    If an employer asks you to pay any security deposit, registration fee, laptop fee, etc., do not pay and notify us immediately. Remember, Internshala doesn't charge a fee from the students to apply to a job or an internship & we don't allow other companies to do so either.</p>
+            </div>
+            <span className='m-2'></span>
 
         </div>
     );

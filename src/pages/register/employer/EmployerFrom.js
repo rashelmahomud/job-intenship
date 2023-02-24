@@ -12,6 +12,7 @@ const EmployerFrom = () => {
     const [postUser, { isError, isLoading }] = useRegisterMutation();
 
     const onSubmit = (data) => {
+        console.log(data);
         postUser({ ...data, role: 'employer' });
         reset();
     }

@@ -8,7 +8,7 @@ import { loginUser, loginWithGoogle } from '../features/auth/authSlice';
 
 const Login = () => {
     const { email, isLoading, isError, error } = useSelector((state) => state.auth);
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

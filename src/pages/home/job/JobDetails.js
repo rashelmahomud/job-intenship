@@ -83,7 +83,7 @@ const JobDetails = () => {
                 <p className='border my-5'></p>
                 <div>
                     <h1 className='font-bold text-xl text-gray-500'>About Kylo Apps</h1>
-                    <Link className='text-blue-400 flex items-center gap-2 text-xl'>website<CiShare1 /></Link>
+                    <Link to='/' className='text-blue-400 flex items-center gap-2 text-xl'>website<CiShare1 /></Link>
                     <p className='my-2'>{overview}</p>
                 </div>
                 <div className='border p-5 my-3'>

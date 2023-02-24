@@ -10,10 +10,12 @@ import { logOut } from '../../features/auth/authSlice';
 import auth from '../../firebase/firebase.config';
 
 const Navber = () => {
-
     const [open, setOpen] = useState(false);
-    const { email } = useSelector((state) => state.auth);
+    const { user:{email, role} } = useSelector((state) => state.auth);
+
     const dispatch = useDispatch();
+
+
 
     const handelSignOut = () => {
         signOut(auth).then(() => {
@@ -48,11 +50,11 @@ const Navber = () => {
 
                     {email ? <button onClick={handelSignOut} className='lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400'>LogOut</button> : <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/login'>Login</Link></li>}
 
-                    {email ? <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li> : "H"}
+                    {email && !role &&  <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>}
 
-                     <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/job'>Job</Link></li>
+                    <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/job'>Job</Link></li>
 
-                    {email && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/dashboard'>Dashboard</Link></li>}
+                    {email && role && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/dashboard'>Dashboard</Link></li>}
 
 
                 </ul>

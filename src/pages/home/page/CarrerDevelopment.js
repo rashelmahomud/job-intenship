@@ -14,9 +14,9 @@ const CarrerDevelopment = () => {
 
     return (
         <div>
-            <div className='text-center my-10'>
+            <div className='text-center my-20'>
                 <h1 className='font-semibold'>SEE HOW YOU CAN UP YOUR CARRER START</h1>
-                <h3 className='text-4xl font-semibold'>CAREER DEVELOPMENT & TRAINING</h3>
+                <h3 className='text-4xl font-semibold capitalize '>career development & Training </h3>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 lg:gap-10 gap-5'>
 

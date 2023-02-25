@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { GrInternetExplorer } from 'react-icons/gr';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { FiDelete } from 'react-icons/fi';
 import { BsChatSquareDots } from 'react-icons/bs';
@@ -7,11 +6,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { logOut } from '../../features/auth/authSlice';
+import  logo  from '../../assates/logo/logo.png';
 import auth from '../../firebase/firebase.config';
 
 const Navber = () => {
     const [open, setOpen] = useState(false);
-    const { user:{email, role} } = useSelector((state) => state.auth);
+    const { user: { email, role } } = useSelector((state) => state.auth);
 
     const dispatch = useDispatch();
 
@@ -29,8 +29,8 @@ const Navber = () => {
             <div className='lg:flex items-center justify-between py-4 lg:px-10 px-10'>
 
                 <div className='font-bold text-2xl cursor-pointer flex items-center font-[poppins] text-gray-800'>
-                    <span className='text-3xl text-indigo-600'> < GrInternetExplorer /> </span>
-                    <Link to='/'>  Job-IntanShip</Link>
+                    <span className='text-3xl text-indigo-600'></span>
+                    <Link to='/'><img className='w-20' src={logo} alt='logo' /></Link>
 
                 </div>
                 <div onClick={() => setOpen(!open)} className=' text-3xl absolute right-8 top-5 cursor-pointer lg:hidden'>
@@ -50,7 +50,7 @@ const Navber = () => {
 
                     {email ? <button onClick={handelSignOut} className='lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400'>LogOut</button> : <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/login'>Login</Link></li>}
 
-                    {email && !role &&  <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>}
+                    {email && !role && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>}
 
                     <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/job'>Job</Link></li>
 

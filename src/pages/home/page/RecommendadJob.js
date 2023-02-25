@@ -13,9 +13,9 @@ const RecommendadJob = () => {
 
 
     return (
-        <div>
+        <div className='my-20'>
             <div className='text-center my-10'>
-                <h3>BASED ON YOUR LAST VISIT</h3>
+                <h3 className='capitalize text-xl'>Based on your last visit </h3>
                 <h1 className='text-3xl font-semibold'>RECOMMENDED JOBS</h1>
             </div>
             <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 '>

@@ -8,7 +8,7 @@ const JobSearch = () => {
         <div>
             <div className='text-center my-10'>
                 <h3 className='text-2xl font-semibold'>DOWNLOAD OUR MOBILE APP</h3>
-                <h1 className='text-4xl font-semibold'>SEARCH FOR JOBS ON THE GO</h1>
+                <h1 className='text-5xl font-semibold capitalize'>Search for jobs on the go </h1>
             </div>
             <div className='grid lg:grid-cols-2 grid-cols-1'>
 

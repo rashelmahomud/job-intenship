@@ -13,6 +13,7 @@ import { signOut } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../features/auth/authSlice';
 import auth from '../../firebase/firebase.config';
+import Profile from '../../pages/page/Profile';
 
 
 const Dashboard = () => {
@@ -38,6 +39,7 @@ const Dashboard = () => {
                         </label>
                     </div>
                 </div>
+                <Profile />
 
                 <Outlet />
 

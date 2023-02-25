@@ -3,7 +3,7 @@ import features from '../../assates/features.jpg'
 
 const NewSite = () => {
     return (
-        <div className='my-10'>
+        <div className='my-20'>
 
             <img className='w-full' src={features} alt='features' />
 

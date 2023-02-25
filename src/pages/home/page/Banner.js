@@ -34,7 +34,7 @@ const Banner = () => {
                     wrapper="div"
                     cursor={true}
                     repeat={Infinity}
-                    style={{ fontSize: '6em',fontFamily:'serif', font: 'bold', color: 'red' }}
+                    style={{ fontSize: '6em',fontFamily:'serif', font: 'bold', color: 'GrayText' }}
                 />
 
 

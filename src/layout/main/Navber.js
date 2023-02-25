@@ -30,7 +30,7 @@ const Navber = () => {
 
                 <div className='font-bold text-2xl cursor-pointer flex items-center font-[poppins] text-gray-800'>
                     <span className='text-3xl text-indigo-600'></span>
-                    <Link to='/'><img className='w-20' src={logo} alt='logo' /></Link>
+                    <Link to='/'>.intenship</Link>
 
                 </div>
                 <div onClick={() => setOpen(!open)} className=' text-3xl absolute right-8 top-5 cursor-pointer lg:hidden'>

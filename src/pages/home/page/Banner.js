@@ -44,6 +44,7 @@ const Banner = () => {
 
 
                 <div className='mt-20'>
+                    
 
                     <Button>Get Started</Button>
                 </div>

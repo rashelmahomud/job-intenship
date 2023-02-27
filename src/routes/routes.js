@@ -21,7 +21,7 @@ import JobDetails from "../pages/home/job/JobDetails";
 
 
 
-const routes = createBrowserRouter([
+const routes = createBrowserRouter( [
 
     {
         path: '/',

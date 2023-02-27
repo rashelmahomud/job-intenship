@@ -5,10 +5,12 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 import { BsStopwatch } from 'react-icons/bs';
 import { GiDuration } from 'react-icons/gi';
 import { AiOutlineRise } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useGetJobsQuery } from '../../../features/job/jobApi';
+import Modal from './Modal';
 
 const JobCart = () => {
+
     const navigate = useNavigate();
     const { data, isError, isLoading } = useGetJobsQuery();
 
@@ -28,6 +30,7 @@ const JobCart = () => {
                         <div className='flex items-center gap-2'>
                             <BiHomeAlt />
                             <h2 className='flex my-2'> Work From Home</h2>
+
                         </div>
                         <div className='flex gap-10'>
                             <div>
@@ -62,7 +65,10 @@ const JobCart = () => {
                         <p className='border my-5'></p>
 
                         <div className='flex gap-5 flex-row-reverse '>
+
                             <button className='border p-2 px-4 rounded bg-blue-500 text-white font-semibold'>Apply Now</button>
+                            {/* <button className='border p-2 px-4 rounded bg-blue-500 text-white font-semibold'><Modal data={data} /></button> */}
+
                             <button onClick={() => navigate(`/jobDetails/${_id}`)} className="cursor-pointer p-2 text-black-600 font-semibold">View Details</button>
                         </div>
                     </div>

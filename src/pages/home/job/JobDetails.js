@@ -16,11 +16,11 @@ import { CgEditHighlight } from 'react-icons/cg';
 
 import { Link, useParams } from 'react-router-dom';
 import { useGetJobByIdQuery } from '../../../features/job/jobApi';
+import Modal from './Modal';
 
 const JobDetails = () => {
     const { id } = useParams();
     const { data, isLoading, isError } = useGetJobByIdQuery(id);
-    console.log(data)
 
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
 
@@ -155,7 +155,9 @@ const JobDetails = () => {
                         </div>
 
                         <div className='text-center'>
-                            <button className='my-5 mx-auto text-2xl font-semibold text-white p-3 bg-[#00A5EC] rounded '>Apply Now</button>
+
+                            <button className='my-5 mx-auto text-2xl font-semibold text-white p-3 bg-[#00A5EC] rounded '> <Modal data={data}>Apply Now</Modal></button>
+
                         </div>
                     </div>
 

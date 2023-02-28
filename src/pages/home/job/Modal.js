@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { useGetJobByIdQuery } from "../../../features/job/jobApi";
 
 export default function Modal({ data }) {
     const [showModal, setShowModal] = useState(false);
+    const { user: { email } } = useSelector((state) => state.auth);
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
     const { handleSubmit, register } = useForm();
 
@@ -54,6 +56,11 @@ export default function Modal({ data }) {
                                 <div className="relative p-6 text-gray-400">
 
                                     <form onSubmit={handleSubmit(onSubmite)} className=" p-3">
+
+                                        <div className="flex flex-col w-full ">
+                                            <label className="flex flex-left p-2 text-gray-600" htmlFor="email">Your Email</label>
+                                            <input className="border rounded-full text-xl p-3 text-base" type='text' id='email' placeholder="personal Email:" {...register('email')} />
+                                        </div>
 
                                         <div className="flex flex-col w-full gap-2 ">
                                             <label className="flex flex-left p-2 text-gray-600" htmlFor="resume">Your resume</label>

@@ -5,9 +5,8 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 import { BsStopwatch } from 'react-icons/bs';
 import { GiDuration } from 'react-icons/gi';
 import { AiOutlineRise } from 'react-icons/ai';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useGetJobsQuery } from '../../../features/job/jobApi';
-import Modal from './Modal';
 
 const JobCart = () => {
 

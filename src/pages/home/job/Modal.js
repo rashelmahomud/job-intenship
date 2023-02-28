@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { useGetJobByIdQuery } from "../../../features/job/jobApi";
+import { GiCrossedSwords } from 'react-icons/gi';
+import { RxCopy } from 'react-icons/rx';
+import { BiRadioCircle } from 'react-icons/bi';
+import { BiRadioCircleMarked } from 'react-icons/bi';
 
 export default function Modal({ data }) {
     const [showModal, setShowModal] = useState(false);
@@ -47,7 +50,7 @@ export default function Modal({ data }) {
                                             type="button"
                                             onClick={() => setShowModal(false)}
                                         >
-                                            Close
+                                            <GiCrossedSwords className="bg-gray-300 w-8 h-8 p-2 rounded-full" />
                                         </button>
                                     </div>
 
@@ -59,7 +62,7 @@ export default function Modal({ data }) {
 
                                         <div className="flex flex-col w-full ">
                                             <label className="flex flex-left p-2 text-gray-600" htmlFor="email">Your Email</label>
-                                            <input className="border rounded-full text-xl p-3 text-base" type='text' id='email' placeholder="personal Email:" {...register('email')} />
+                                            <input className="border rounded-full text-xl p-3 text-base cursor-not-allowed	" type='text' id='email' value={email} disabled placeholder="personal Email:" {...register('email')} />
                                         </div>
 
                                         <div className="flex flex-col w-full gap-2 ">
@@ -72,9 +75,18 @@ export default function Modal({ data }) {
 
                                             <label className="flex flex-left p-2 text-gray-600" htmlFor="coverLetter">Cover Letter</label>
                                             <p className="flex flex-left text-base font-normal px-2">Why should you be hired for this role?</p>
-                                            <p className="flex flex-left text-base font-normal text-blue-500 px-2"> Copy from your last application & edit</p>
+                                            <p className="flex flex-left items-center gap-2 text-base font-normal text-blue-500 px-2">
+                                                <RxCopy /> Copy from your last application & edit</p>
 
                                             <textarea className="border rounded-full text-xl p-2 text-base" rows={2} placeholder='Write your cover letter.' type='text' id='coverLetter' {...register('coverLetter')} />
+                                        </div>
+                                        <div className="  text-gray-600 p-2 my-3">
+                                            <h2 className="flex flex-left">Your availability</h2> <br />
+                                            <p className="flex flex-left text-base">Comfirom Your availability</p>
+                                            <div className="text-base">
+                                                <p className="flex flex-left items-center gap-2 font-normal"><BiRadioCircleMarked className="text-xl" />Yes, I am available for 6 months starting immediately for a full-time internship</p>
+                                                <p className="flex flex-left items-center font-normal gap-2"><BiRadioCircle  className="text-xl"/> No (Please specify your availability)</p>
+                                            </div>
                                         </div>
 
                                         <button type='submit' className="flex flex-end bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 mt-3"
@@ -83,6 +95,7 @@ export default function Modal({ data }) {
                                     </form>
 
                                 </div>
+
 
                             </div>
                         </div>

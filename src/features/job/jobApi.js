@@ -12,6 +12,13 @@ export const jobApi = apiSlice.injectEndpoints({
                 body: data,
             })
         }),
+        applyJob: builder.mutation({
+            query: (data) => ({
+                method: 'POST',
+                url: 'applyJob',
+                body: data,
+            })
+        }),
 
         getJobs: builder.query({
             query: () => ({
@@ -30,4 +37,4 @@ export const jobApi = apiSlice.injectEndpoints({
 });
 
 
-export const { usePostJobMutation, useGetJobByIdQuery, useGetJobsQuery } = jobApi;
+export const { usePostJobMutation, useGetJobByIdQuery, useGetJobsQuery, useApplyJobMutation } = jobApi;

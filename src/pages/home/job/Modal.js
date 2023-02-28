@@ -5,6 +5,7 @@ import { GiCrossedSwords } from 'react-icons/gi';
 import { RxCopy } from 'react-icons/rx';
 import { BiRadioCircle } from 'react-icons/bi';
 import { BiRadioCircleMarked } from 'react-icons/bi';
+import { useApplyJobMutation } from "../../../features/job/jobApi";
 
 export default function Modal({ data }) {
     const [showModal, setShowModal] = useState(false);
@@ -12,9 +13,11 @@ export default function Modal({ data }) {
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
     const { handleSubmit, register } = useForm();
 
+    const [applyJob] = useApplyJobMutation();
 
     const onSubmite = (data) => {
         console.log('hello', data)
+        applyJob(data);
     }
     return (
         <>
@@ -85,7 +88,7 @@ export default function Modal({ data }) {
                                             <p className="flex flex-left text-base">Comfirom Your availability</p>
                                             <div className="text-base">
                                                 <p className="flex flex-left items-center gap-2 font-normal"><BiRadioCircleMarked className="text-xl" />Yes, I am available for 6 months starting immediately for a full-time internship</p>
-                                                <p className="flex flex-left items-center font-normal gap-2"><BiRadioCircle  className="text-xl"/> No (Please specify your availability)</p>
+                                                <p className="flex flex-left items-center font-normal gap-2"><BiRadioCircle className="text-xl" /> No (Please specify your availability)</p>
                                             </div>
                                         </div>
 

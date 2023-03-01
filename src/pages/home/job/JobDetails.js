@@ -82,7 +82,7 @@ const JobDetails = () => {
                 </div>
                 <p className='border my-5'></p>
                 <div>
-                    <h1 className='font-bold text-xl text-gray-500'>About Kylo Apps</h1>
+                    <h1 className='font-bold text-xl text-gray-500'>About {companyName}</h1>
                     <Link to='/' className='text-blue-400 flex items-center gap-2 text-xl'>website<CiShare1 /></Link>
                     <p className='my-2'>{overview}</p>
                 </div>
@@ -130,7 +130,7 @@ const JobDetails = () => {
                             <li>3. A video interview (Technical)</li>
                         </ul>
                         <p className='my-2'>Earn certifications in these skills</p>
-                        <Link className='text-blue-600 font-semibold'>Learn Web Development</Link>
+                        <Link className='text-blue-600 font-semibold'>Learn {position}</Link>
                     </div>
 
                     <div>

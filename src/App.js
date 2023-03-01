@@ -19,7 +19,6 @@ function App() {
       try {
 
         onAuthStateChanged(auth, (user) => {
-          console.log(user)
           if (user) {
             dispatch(getUser(user.email));
           } else {

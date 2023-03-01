@@ -11,13 +11,14 @@ export default function Modal({ data }) {
     const [showModal, setShowModal] = useState(false);
     const { user: { email } } = useSelector((state) => state.auth);
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register, reset } = useForm();
 
-    const [applyJob] = useApplyJobMutation();
+    const [applyJob, { isLoading }] = useApplyJobMutation();
 
     const onSubmite = (data) => {
         console.log('hello', data)
         applyJob(data);
+        reset();
     }
     return (
         <>
@@ -87,7 +88,7 @@ export default function Modal({ data }) {
                                             <h2 className="flex flex-left">Your availability</h2> <br />
                                             <p className="flex flex-left text-base">Comfirom Your availability</p>
                                             <div className="text-base">
-                                                <p className="flex flex-left items-center gap-2 font-normal"><BiRadioCircleMarked className="text-xl" />Yes, I am available for 6 months starting immediately for a full-time internship</p>
+                                                <p className="flex flex-left items-center gap-2 font-normal"><BiRadioCircleMarked className="text-xl" />Yes, I am available for {duration} months starting immediately for a full-time internship</p>
                                                 <p className="flex flex-left items-center font-normal gap-2"><BiRadioCircle className="text-xl" /> No (Please specify your availability)</p>
                                             </div>
                                         </div>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { logOut } from '../../features/auth/authSlice';
-import  logo  from '../../assates/logo/logo.png';
+import logo from '../../assates/logo/logo.png';
 import auth from '../../firebase/firebase.config';
 
 const Navber = () => {
@@ -52,7 +52,7 @@ const Navber = () => {
 
                     {email && !role && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/register'>REGISTER</Link></li>}
 
-                    <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/job'>Job</Link></li>
+                    {email && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/job'>Job</Link></li>}
 
                     {email && role && <li className="lg:ml-8 lg:my-0 my-7 text-xl cursor-pointer hover:border-b-2 duration-500 hover:text-blue-400"> <Link to='/dashboard'>Dashboard</Link></li>}
 

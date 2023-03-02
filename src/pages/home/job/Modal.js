@@ -14,15 +14,14 @@ export default function Modal({ data }) {
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
     const { handleSubmit, register, reset } = useForm();
 
-    const [applyJob, { isLoading, isSuccess, success }] = useApplyJobMutation();
+    const [applyJob, { isLoading, isSuccess, isError }] = useApplyJobMutation();
 
     const onSubmite = (data) => {
 
         applyJob(data);
         toast.success('Successfully Apply!')
 
-
-        // reset();
+        reset();
     }
     return (
         <>

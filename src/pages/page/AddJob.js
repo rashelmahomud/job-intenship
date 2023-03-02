@@ -1,10 +1,11 @@
 import React from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { FiTrash } from 'react-icons/fi';
 import { usePostJobMutation } from '../../features/job/jobApi';
 const AddJob = () => {
     const { handleSubmit, register, control, reset } = useForm();
-    const [jobPost, { isLoading, isError }] = usePostJobMutation();
+    const [jobPost, { isLoading, isError, error, isSuccess }] = usePostJobMutation();
 
     const {
         fields: SkillFields,
@@ -28,8 +29,15 @@ const AddJob = () => {
 
 
     const onSubmit = (data) => {
-        console.log(data)
         jobPost(data);
+
+        if (isSuccess) {
+            toast.success("Add your Product..")
+        }
+        
+        if (isError) {
+            toast.error("Have a problems.")
+        }
 
         reset();
     }

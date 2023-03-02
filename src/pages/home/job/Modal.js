@@ -6,6 +6,7 @@ import { RxCopy } from 'react-icons/rx';
 import { BiRadioCircle } from 'react-icons/bi';
 import { BiRadioCircleMarked } from 'react-icons/bi';
 import { useApplyJobMutation } from "../../../features/job/jobApi";
+import { toast } from "react-hot-toast";
 
 export default function Modal({ data }) {
     const [showModal, setShowModal] = useState(false);
@@ -13,12 +14,15 @@ export default function Modal({ data }) {
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
     const { handleSubmit, register, reset } = useForm();
 
-    const [applyJob, { isLoading }] = useApplyJobMutation();
+    const [applyJob, { isLoading, isSuccess, success }] = useApplyJobMutation();
 
     const onSubmite = (data) => {
-        console.log('hello', data)
+
         applyJob(data);
-        reset();
+        toast.success('Successfully Apply!')
+
+
+        // reset();
     }
     return (
         <>

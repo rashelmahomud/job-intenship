@@ -31,13 +31,15 @@ export const jobApi = apiSlice.injectEndpoints({
             query: () => ({
                 url: '/jobs'
             }),
+            providesTags: ["jobs"]
         }),
 
         getJobById: builder.query({
             query: (id) => ({
                 url: `/job/${id}`
 
-            })
+            }),
+            providesTags: ["jobs"]
         })
 
 

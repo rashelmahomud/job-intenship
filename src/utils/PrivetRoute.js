@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import Loading from '../components/resolve/Loading';
 
 const PrivetRoute = ({ children }) => {
 
@@ -9,7 +10,7 @@ const PrivetRoute = ({ children }) => {
     const { pathname } = useLocation();
 
     if (isLoading) {
-        return <p>Loading....</p>
+        return <Loading />
     }
 
     if (!email && !isLoading) {

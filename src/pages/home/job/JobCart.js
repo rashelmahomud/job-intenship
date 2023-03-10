@@ -8,11 +8,16 @@ import { AiOutlineRise } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { useGetJobsQuery } from '../../../features/job/jobApi';
 import Modal from './Modal';
+import Loading from '../../../components/resolve/Loading';
 
 const JobCart = () => {
 
     const navigate = useNavigate();
     const { data, isError, isLoading } = useGetJobsQuery();
+
+    if(isLoading) {
+        return <Loading />
+    }
 
     return (
         <div className='p-5  max-w-3xl mx-auto rounded'>

@@ -21,6 +21,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "react-type-animation": "^2.1.2",
     "three": "^0.150.0",
     "typewriter-effect": "^2.19.0",

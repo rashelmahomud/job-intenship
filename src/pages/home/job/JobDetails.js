@@ -17,12 +17,18 @@ import { CgEditHighlight } from 'react-icons/cg';
 import { Link, useParams } from 'react-router-dom';
 import { useGetJobByIdQuery } from '../../../features/job/jobApi';
 import Modal from './Modal';
+import Loading from '../../../components/resolve/Loading';
 
 const JobDetails = () => {
     const { id } = useParams();
     const { data, isLoading, isError } = useGetJobByIdQuery(id);
 
     const { companyName, position, duration, salaryrange, logo, overview, needMember } = data?.data || {};
+
+    if(isLoading) {
+        return <Loading />
+    }
+
 
     return (
         <div>

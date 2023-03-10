@@ -18,6 +18,7 @@ import Register from "../pages/register/Register";
 import SignUp from "../pages/SignUp";
 import PrivetRoute from "../utils/PrivetRoute";
 import JobDetails from "../pages/home/job/JobDetails";
+import ApplyedJob from "../pages/page/ApplyedJob";
 
 
 
@@ -103,6 +104,10 @@ const routes = createBrowserRouter( [
             {
                 path: 'add-job',
                 element: <AddJob />
+            },
+            {
+                path: 'applyed',
+                element: <ApplyedJob />
             },
             {
                 path: 'order',

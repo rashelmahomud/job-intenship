@@ -13,7 +13,6 @@ import { signOut } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../features/auth/authSlice';
 import auth from '../../firebase/firebase.config';
-import Profile from '../../pages/page/Profile';
 
 
 const Dashboard = () => {
@@ -39,7 +38,6 @@ const Dashboard = () => {
                         </label>
                     </div>
                 </div>
-                <Profile />
 
                 <Outlet />
 
@@ -53,6 +51,7 @@ const Dashboard = () => {
                     <li><Link to='about'><SiAboutdotme className='text-orange-400 ' />About</Link></li>
                     <li><Link to='job'><BiMessageSquareAdd className='text-orange-400' /> Job</Link></li>
                     <li><Link to='add-job'><AiFillFileAdd className='text-orange-400 ' /> Add Job</Link></li>
+                    <li><Link to='applyed'><AiFillFileAdd className='text-orange-400 ' /> Applyed Job</Link></li>
                     <li><Link to='order'><AiOutlineBorderInner className='text-orange-400 ' /> Order</Link></li>
                     <li><Link to='reviews'><MdPreview className='text-orange-400' /> Reviews</Link></li>
                     <li><Link to='gettings'><GiMultipleTargets className='text-orange-400' /> Grattings</Link></li>

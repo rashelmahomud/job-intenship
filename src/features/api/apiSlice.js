@@ -4,7 +4,8 @@ export const apiSlice = createApi({
     reducerPath: "apiSlice",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.REACT_APP_URL,
+        baseUrl: 'https://server-theta-bice.vercel.app',
+        // baseUrl: process.env.REACT_APP_URL,
     }),
     tagTypes: ['jobs', 'job'],
     endpoints: (builder) => ({})

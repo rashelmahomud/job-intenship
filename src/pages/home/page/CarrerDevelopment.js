@@ -7,7 +7,7 @@ const CarrerDevelopment = () => {
     const [carers, setCarers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/carear')
+        fetch('https://job-intanship-server-rashelmahomud.vercel.app/carear')
             .then(res => res.json())
             .then(data => setCarers(data.data))
     }, [])

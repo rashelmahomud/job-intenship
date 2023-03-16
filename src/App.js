@@ -19,9 +19,8 @@ function App() {
       try {
 
         onAuthStateChanged(auth, (user) => {
-          console.log(user)
           if (user) {
-            dispatch(setUser(user.email));
+            // dispatch(setUser(user.email));
             dispatch(getUser(user.email));
           } else {
             dispatch(toggleLoading())

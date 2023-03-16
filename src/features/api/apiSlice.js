@@ -4,7 +4,7 @@ export const apiSlice = createApi({
     reducerPath: "apiSlice",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://job-intanship-server-rashelmahomud.vercel.app",
+        baseUrl: "http://localhost:5000",
     }),
     tagTypes: ['jobs', 'job'],
     endpoints: (builder) => ({})
